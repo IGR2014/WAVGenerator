@@ -6,9 +6,9 @@
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		04.04.17 19:23
+//	Date:		04.04.17 22:50
 //
-//	Description:	WAVE file header structure.
+//	Description:	WAVE file header class
 //
 /////////////////////////////////////////////////////////
 
@@ -17,23 +17,23 @@
 
 
 // RIFF chunk ID
-static const char WAV_RIFF_CHUNK_ID[]		= "RIFF";
+static const unsigned int WAV_RIFF_CHUNK_ID	= 0x52494646;	// "RIFF"
 // WAVE chunk ID
-static const char WAV_WAVE_CHUNK_ID[]		= "WAVE";
+static const unsigned int WAV_WAVE_CHUNK_ID	= 0x57415645;	// "WAVE"
 // fmt subchunk/section
-static const char WAV_FMT__SUBCHUNK_ID[]	= "fmt ";
+static const unsigned int WAV_FMT__SUBCHUNK_ID	= 0x666d7420;	// "fmt "
 // data subchunk/section
-static const char WAV_DATA_SUBCHUNK_ID[]	= "data";
+static const unsigned int WAV_DATA_SUBCHUNK_ID	= 0x64617461;	// "data"
 
 // WAVE file header
 class WAVHeader {
 
 	private:
 
-		char			chunkID;		// "RIFF"
+		unsigned int		chunkID;		// "RIFF"
 		unsigned int		chunkSize;		// Size of all chunks
-		char			format;			// "WAVE"
-		char			subchunk1ID;		// "fmt "
+		unsigned int		format;			// "WAVE"
+		unsigned int		subchunk1ID;		// "fmt "
 		unsigned int		subchunk1Size;		// Size of chunk (16 for PCM)
 		unsigned short		audioFormat;		// Audio format
 		unsigned short		numOfChannels;		// Number of channels
@@ -41,7 +41,7 @@ class WAVHeader {
 		unsigned int		byteRate;		// Byte rate
 		unsigned short		blockAlign;		// Block align
 		unsigned short		bitsPerSample;		// Bits per sample
-		char			subchunk2ID;		// "data"
+		unsigned int		subchunk2ID;		// "data"
 		unsigned int		subchunk2Size;		// Size of data
 
 
@@ -49,8 +49,6 @@ class WAVHeader {
 
 		// Default c-tor
 		WAVHeader();
-		// C-tor
-		explicit WAVHeader(const char*);
 		// Copy c-tor
 		WAVHeader(const WAVHeader&);
 		// Move c-tor
