@@ -55,17 +55,17 @@ class WAVHeader {
 		unsigned short		getBitsPerSample() const;
 		
 		// Get audio format
-		void			getAudioFormat(const unsigned short&);
+		void			setAudioFormat(const unsigned short&);
 		// Get number of channels
-		void			getNumOfChannels(const unsigned short&);
+		void			setNumOfChannels(const unsigned short&);
 		// Get sample rate
-		void			getSampleRate(const unsigned int&);
+		void			setSampleRate(const unsigned int&);
 		// Get byte rate
-		void			getByteRate(const unsigned int&);
+		void			setByteRate(const unsigned int&);
 		// Get block align
-		void			getBlockAlign(const unsigned short&);
+		void			setBlockAlign(const unsigned short&);
 		// Get bits per sample
-		void			getBitsPerSample(const unsigned short&);
+		void			setBitsPerSample(const unsigned short&);
 		
 		// Read header
 		bool			read(const char*);
