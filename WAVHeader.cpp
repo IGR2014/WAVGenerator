@@ -107,7 +107,7 @@ void WAVHeader::setBitsPerSample(const unsigned short &_bitsPerSample) {
 // Read header
 bool WAVHeader::read(const char*) {
 
-	// TO BE DONE
+	// TO BE IMPLEMENTED
 
 	return false;
 
@@ -116,7 +116,7 @@ bool WAVHeader::read(const char*) {
 // Write header
 bool WAVHeader::write(const char*) const {
 
-	// TO BE DONE
+	// TO BE IMPLEMENTED
 	
 	return false;
 
