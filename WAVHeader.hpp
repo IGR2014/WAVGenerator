@@ -1,3 +1,18 @@
+/////////////////////////////////////////////////////////
+//
+//	Name:		WAVHeader.hpp
+//
+//	Copyright:	Igor Baklykov © 2017
+//
+//	Author:		Igor Baklykov
+//
+//	Date:		04.04.17 19:23
+//
+//	Description:	WAVE file header structure.
+//
+/////////////////////////////////////////////////////////
+
+
 #pragma once
 
 
@@ -54,17 +69,17 @@ class WAVHeader {
 		// Get bits per sample
 		unsigned short		getBitsPerSample() const;
 		
-		// Get audio format
+		// Set audio format
 		void			setAudioFormat(const unsigned short&);
-		// Get number of channels
+		// Set number of channels
 		void			setNumOfChannels(const unsigned short&);
-		// Get sample rate
+		// Set sample rate
 		void			setSampleRate(const unsigned int&);
-		// Get byte rate
+		// Set byte rate
 		void			setByteRate(const unsigned int&);
-		// Get block align
+		// Set block align
 		void			setBlockAlign(const unsigned short&);
-		// Get bits per sample
+		// Set bits per sample
 		void			setBitsPerSample(const unsigned short&);
 		
 		// Read header
