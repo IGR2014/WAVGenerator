@@ -2,30 +2,31 @@
 
 
 // RIFF chunk ID
-static const char RIFF_CHUNK_ID[]	= "RIFF";
+static const char WAV_RIFF_CHUNK_ID[]		= "RIFF";
 // WAVE chunk ID
-static const char WAVE_CHUNK_ID[]	= "WAVE";
+static const char WAV_WAVE_CHUNK_ID[]		= "WAVE";
 // fmt subchunk/section
-static const char FMT__SUBCHUNK_ID[]	= "fmt ";
+static const char WAV_FMT__SUBCHUNK_ID[]	= "fmt ";
 // data subchunk/section
-static const char DATA_SUBCHUNK_ID[]	= "data";
+static const char WAV_DATA_SUBCHUNK_ID[]	= "data";
 
+// WAVE file header
 class WAVHeader {
 
 	private:
 
-		char			chunkID;		// "RIFF"
-		unsigned int		chunkSize;		// Size of all chunks
-		char			format;			// "WAVE"
-		char			subchunk1ID;		// "fmt "
+		char				chunkID;			// "RIFF"
+		unsigned int		chunkSize;			// Size of all chunks
+		char				format;				// "WAVE"
+		char				subchunk1ID;		// "fmt "
 		unsigned int		subchunk1Size;		// Size of chunk (16 for PCM)
 		unsigned short		audioFormat;		// Audio format
 		unsigned short		numOfChannels;		// Number of channels
-		unsigned int		sampleRate;		// Sample rate
-		unsigned int		byteRate;		// Byte rate
-		unsigned short		blockAlign;		// Block align
+		unsigned int		sampleRate;			// Sample rate
+		unsigned int		byteRate;			// Byte rate
+		unsigned short		blockAlign;			// Block align
 		unsigned short		bitsPerSample;		// Bits per sample
-		char			subchunk2ID;		// "data"
+		char				subchunk2ID;		// "data"
 		unsigned int		subchunk2Size;		// Size of data
 
 
@@ -54,22 +55,22 @@ class WAVHeader {
 		unsigned short		getBitsPerSample() const;
 		
 		// Get audio format
-		void			getAudioFormat(const unsigned short&);
+		void				getAudioFormat(const unsigned short&);
 		// Get number of channels
-		void			getNumOfChannels(const unsigned short&);
+		void				getNumOfChannels(const unsigned short&);
 		// Get sample rate
-		void			getSampleRate(const unsigned int&);
+		void				getSampleRate(const unsigned int&);
 		// Get byte rate
-		void			getByteRate(const unsigned int&);
+		void				getByteRate(const unsigned int&);
 		// Get block align
-		void			getBlockAlign(const unsigned short&);
+		void				getBlockAlign(const unsigned short&);
 		// Get bits per sample
-		void			getBitsPerSample(const unsigned short&);
+		void				getBitsPerSample(const unsigned short&);
 		
 		// Read header
-		bool			read(const char*);
+		bool				read(const char*);
 		// Write header
-		bool			write(const char*) const;
+		bool				write(const char*) const;
 		
 		// D-tor
 		~WAVHeader();
