@@ -2,7 +2,7 @@
 //
 //	Name:		WAVHeader.hpp
 //
-//	Copyright:	Igor Baklykov © 2017
+//	Copyright:	Igor Baklykov Â© 2017
 //
 //	Author:		Igor Baklykov
 //
@@ -241,7 +241,6 @@ WAVHeader::~WAVHeader() {
 	bitsPerSample	= 0;
 	subchunk2ID	= 0;
 	subchunk2Size	= 0;
-
 
 };
 
