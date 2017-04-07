@@ -185,19 +185,19 @@ void WAVHeader::setBitsPerSample(const unsigned short &_bitsPerSample) {
 // Read header
 bool WAVHeader::read(const char *_buffer) {
 
-	chunkID		= *((unsigned int*)_buffer);
-	chunkSize	= *((unsigned int*)_buffer + 4);
-	format		= *((unsigned int*)_buffer + 8);
-	subchunk1ID	= *((unsigned int*)_buffer + 12);
-	subchunk1Size	= *((unsigned int*)_buffer + 16);
-	audioFormat	= *((unsigned short*)_buffer + 20);
-	numOfChannels	= *((unsigned short*)_buffer + 22);
-	sampleRate	= *((unsigned int*)_buffer + 24);
-	byteRate	= *((unsigned int*)_buffer + 28);
-	blockAlign	= *((unsigned short*)_buffer + 32);
-	bitsPerSample	= *((unsigned short*)_buffer + 34);
-	subchunk2ID	= *((unsigned int*)_buffer + 36);
-	subchunk2Size	= *((unsigned int*)_buffer + 40);
+	chunkID		= *(unsigned int*)&_buffer[0];
+	chunkSize	= *(unsigned int*)&_buffer[4];
+	format		= *(unsigned int*)&_buffer[8];
+	subchunk1ID	= *(unsigned int*)&_buffer[12];
+	subchunk1Size	= *(unsigned int*)&_buffer[16];
+	audioFormat	= *(unsigned short*)&_buffer[20];
+	numOfChannels	= *(unsigned short*)&_buffer[22];
+	sampleRate	= *(unsigned int*)&_buffer[24];
+	byteRate	= *(unsigned int*)&_buffer[28];
+	blockAlign	= *(unsigned short*)&_buffer[32];
+	bitsPerSample	= *(unsigned short*)&_buffer[34];
+	subchunk2ID	= *(unsigned int*)&_buffer[36];
+	subchunk2Size	= *(unsigned int*)&_buffer[40];
 
 	return true;
 
@@ -206,19 +206,19 @@ bool WAVHeader::read(const char *_buffer) {
 // Write header
 bool WAVHeader::write(const char *_buffer) const {
 
-	*((unsigned int*)_buffer)		= chunkID;
-	*((unsigned int*)_buffer + 4)		= chunkSize;
-	*((unsigned int*)_buffer + 8)		= format;
-	*((unsigned int*)_buffer + 12)		= subchunk1ID;
-	*((unsigned int*)_buffer + 16)		= subchunk1Size;
-	*((unsigned short*)_buffer + 20)	= audioFormat;
-	*((unsigned short*)_buffer + 22)	= numOfChannels;
-	*((unsigned int*)_buffer + 24)		= sampleRate;
-	*((unsigned int*)_buffer + 28)		= byteRate;
-	*((unsigned short*)_buffer + 32)	= blockAlign;
-	*((unsigned short*)_buffer + 34)	= bitsPerSample;
-	*((unsigned int*)_buffer + 36)		= subchunk2ID;
-	*((unsigned int*)_buffer + 40)		= subchunk2Size;
+	*(unsigned int*)&_buffer[0]	= chunkID;
+	*(unsigned int*)&_buffer[4]	= chunkSize;
+	*(unsigned int*)&_buffer[8]	= format;
+	*(unsigned int*)&_buffer[12]	= subchunk1ID;
+	*(unsigned int*)&_buffer[16]	= subchunk1Size;
+	*(unsigned short*)&_buffer[20]	= audioFormat;
+	*(unsigned short*)&_buffer[22]	= numOfChannels;
+	*(unsigned int*)&_buffer[24]	= sampleRate;
+	*(unsigned int*)&_buffer[28]	= byteRate;
+	*(unsigned short*)&_buffer[32]	= blockAlign;
+	*(unsigned short*)&_buffer[34]	= bitsPerSample;
+	*(unsigned int*)&_buffer[36]	= subchunk2ID;
+	*(unsigned int*)&_buffer[40]	= subchunk2Size;
 	
 	return true;
 

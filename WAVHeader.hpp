@@ -17,13 +17,13 @@
 
 
 // RIFF chunk ID
-static const unsigned int WAV_RIFF_CHUNK_ID	= 0x52494646;	// "RIFF"
+static const unsigned int WAV_RIFF_CHUNK_ID	= 0x46464952;	// "RIFF"
 // WAVE chunk ID
-static const unsigned int WAV_WAVE_CHUNK_ID	= 0x57415645;	// "WAVE"
+static const unsigned int WAV_WAVE_CHUNK_ID	= 0x45564157;	// "WAVE"
 // fmt subchunk/section
-static const unsigned int WAV_FMT__SUBCHUNK_ID	= 0x666d7420;	// "fmt "
+static const unsigned int WAV_FMT__SUBCHUNK_ID	= 0x20746d66;	// "fmt "
 // data subchunk/section
-static const unsigned int WAV_DATA_SUBCHUNK_ID	= 0x64617461;	// "data"
+static const unsigned int WAV_DATA_SUBCHUNK_ID	= 0x61746164;	// "data"
 
 // WAVE file header
 class WAVHeader {
