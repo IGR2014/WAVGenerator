@@ -30,18 +30,18 @@ class WAVHeader {
 
 	private:
 
-		unsigned int		chunkID;		// "RIFF"
-		unsigned int		chunkSize;		// Size of all chunks
-		unsigned int		format;			// "WAVE"
-		unsigned int		subchunk1ID;		// "fmt "
-		unsigned int		subchunk1Size;		// Size of chunk (16 for PCM)
+		//unsigned int		chunkID;		// "RIFF"
+		//unsigned int		chunkSize;		// Size of all chunks
+		//unsigned int		format;			// "WAVE"
+		//unsigned int		subchunk1ID;		// "fmt "
+		//unsigned int		subchunk1Size;		// Size of chunk (16 for PCM)
 		unsigned short		audioFormat;		// Audio format
 		unsigned short		numOfChannels;		// Number of channels
 		unsigned int		sampleRate;		// Sample rate
-		unsigned int		byteRate;		// Byte rate
-		unsigned short		blockAlign;		// Block align
+		//unsigned int		byteRate;		// Byte rate
+		//unsigned short		blockAlign;		// Block align
 		unsigned short		bitsPerSample;		// Bits per sample
-		unsigned int		subchunk2ID;		// "data"
+		//unsigned int		subchunk2ID;		// "data"
 		unsigned int		subchunk2Size;		// Size of data
 
 
@@ -74,9 +74,9 @@ class WAVHeader {
 		// Set sample rate
 		void			setSampleRate(const unsigned int&);
 		// Set byte rate
-		void			setByteRate(const unsigned int&);
+		//void			setByteRate(const unsigned int&);
 		// Set block align
-		void			setBlockAlign(const unsigned short&);
+		//void			setBlockAlign(const unsigned short&);
 		// Set bits per sample
 		void			setBitsPerSample(const unsigned short&);
 		
