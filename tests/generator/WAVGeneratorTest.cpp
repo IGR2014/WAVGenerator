@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////
 //
-//	Name:		WAVHeader.hpp
+//	Name:		WAVGeneratorTest.cpp
 //
 //	Copyright:	Igor Baklykov © 2017
 //
