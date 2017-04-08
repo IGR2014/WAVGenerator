@@ -6,9 +6,9 @@
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		08.04.2017 03:41
+//	Date:		09.04.2017 20:01
 //
-//	Description:	WAVE file header class
+//	Description:	WAVE file header test
 //
 /////////////////////////////////////////////////////////
 
@@ -18,7 +18,7 @@
 #include "../../WAVHeader.hpp"
 
 
-int main(int argc, char argv[]) {
+int main(int argc, char* argv[]) {
 
 	char data[44];
 
