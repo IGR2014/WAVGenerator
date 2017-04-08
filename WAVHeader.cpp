@@ -19,11 +19,10 @@
 // Default c-tor
 WAVHeader::WAVHeader() {
 
-	audioFormat	= 1;
-	numOfChannels	= 1;
 	sampleRate	= 48000;
-	bitsPerSample	= 16;
 	subchunk2Size	= 0;
+	numOfChannels	= 1;
+	bitsPerSample	= 16;
 
 };
 
@@ -32,11 +31,10 @@ WAVHeader::WAVHeader(const WAVHeader &_w) {
 
 	if (&_w != this) {
 
-		audioFormat		= _w.audioFormat;
-		numOfChannels		= _w.numOfChannels;
 		sampleRate		= _w.sampleRate;
-		bitsPerSample		= _w.bitsPerSample;
 		subchunk2Size		= _w.subchunk2Size;
+		numOfChannels		= _w.numOfChannels;
+		bitsPerSample		= _w.bitsPerSample;
 	
 	}
 
@@ -47,29 +45,20 @@ WAVHeader::WAVHeader(WAVHeader &&_w) {
 
 	if (&_w != this) {
 
-		audioFormat		= _w.audioFormat;
-		numOfChannels		= _w.numOfChannels;
 		sampleRate		= _w.sampleRate;
-		bitsPerSample		= _w.bitsPerSample;
 		subchunk2Size		= _w.subchunk2Size;
-	
-		_w.audioFormat		= 1;
-		_w.numOfChannels	= 1;
+		numOfChannels		= _w.numOfChannels;
+		bitsPerSample		= _w.bitsPerSample;
+
 		_w.sampleRate		= 48000;
-		_w.bitsPerSample	= 16;
 		_w.subchunk2Size	= 0;
+		_w.numOfChannels	= 1;
+		_w.bitsPerSample	= 16;
 	
 	}
 
 };
 
-
-// Get audio format
-unsigned short WAVHeader::getAudioFormat() const {
-
-	return audioFormat;
-
-};
 
 // Get number of channels
 unsigned short WAVHeader::getNumOfChannels() const {
@@ -107,13 +96,6 @@ unsigned short WAVHeader::getBitsPerSample() const {
 };
 
 
-// Set audio format
-void WAVHeader::setAudioFormat(const unsigned short &_audioFormat) {
-
-	audioFormat = _audioFormat;
-
-};
-
 // Set number of channels
 void WAVHeader::setNumOfChannels(const unsigned short &_numOfChannels) {
 
@@ -136,29 +118,6 @@ void WAVHeader::setBitsPerSample(const unsigned short &_bitsPerSample) {
 };
 
 
-// Read header
-bool WAVHeader::read(const char *_buffer) {
-
-	if (*(unsigned int*)&_buffer[0] != WAV_RIFF_CHUNK_ID ||
-	    *(unsigned int*)&_buffer[8] != WAV_WAVE_CHUNK_ID ||
-	    *(unsigned int*)&_buffer[12] != WAV_FMT__SUBCHUNK_ID ||
-	    *(unsigned int*)&_buffer[16] != 16 ||
-	    *(unsigned int*)&_buffer[36] != WAV_DATA_SUBCHUNK_ID) {
-
-		return false;
-
-	}
-
-	audioFormat	= *(unsigned short*)&_buffer[20];
-	numOfChannels	= *(unsigned short*)&_buffer[22];
-	sampleRate	= *(unsigned int*)&_buffer[24];
-	bitsPerSample	= *(unsigned short*)&_buffer[34];
-	subchunk2Size	= *(unsigned int*)&_buffer[40];
-
-	return true;
-
-};
-
 // Write header
 bool WAVHeader::write(const char *_buffer) const {
 
@@ -167,7 +126,7 @@ bool WAVHeader::write(const char *_buffer) const {
 	*(unsigned int*)&_buffer[8]	= WAV_WAVE_CHUNK_ID;
 	*(unsigned int*)&_buffer[12]	= WAV_FMT__SUBCHUNK_ID;
 	*(unsigned int*)&_buffer[16]	= 16;
-	*(unsigned short*)&_buffer[20]	= audioFormat;
+	*(unsigned short*)&_buffer[20]	= 1;
 	*(unsigned short*)&_buffer[22]	= numOfChannels;
 	*(unsigned int*)&_buffer[24]	= sampleRate;
 	*(unsigned int*)&_buffer[28]	= sampleRate * numOfChannels * bitsPerSample / 8;
@@ -184,11 +143,10 @@ bool WAVHeader::write(const char *_buffer) const {
 // D-tor
 WAVHeader::~WAVHeader() {
 
-	audioFormat	= 0;
-	numOfChannels	= 0;
 	sampleRate	= 0;
-	bitsPerSample	= 0;
 	subchunk2Size	= 0;
+	numOfChannels	= 0;
+	bitsPerSample	= 0;
 
 };
 
