@@ -6,9 +6,10 @@
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		08.04.2017 03:41
+//	Date:		09.04.2017 20:01
 //
 //	Description:	WAVE file header class
+//			declaration
 //
 /////////////////////////////////////////////////////////
 
