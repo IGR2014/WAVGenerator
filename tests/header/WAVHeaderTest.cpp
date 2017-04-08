@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////
 //
-//	Name:		WAVHeader.hpp
+//	Name:		WAVHeaderTest.cpp
 //
 //	Copyright:	Igor Baklykov © 2017
 //
@@ -38,7 +38,6 @@ int main(int argc, char* argv[]) {
 	std::cout << "Bits per sample:\t" << *(unsigned short*)&data[34] << std::endl;
 	std::cout << "Subchunk 2 ID:\t\t\"" << data[36] << data[37] << data[38] << data[39] << "\"" << std::endl;
 	std::cout << "Subchunk 2 size:\t" << *(unsigned int*)&data[40] << std::endl;
-
 
 	return 0;
 
