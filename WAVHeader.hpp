@@ -25,13 +25,14 @@ static const unsigned int WAV_FMT__SUBCHUNK_ID	= 0x20746d66;	// "fmt "
 // data subchunk/section
 static const unsigned int WAV_DATA_SUBCHUNK_ID	= 0x61746164;	// "data"
 
+
 // WAVE file header
 class WAVHeader {
 
 	private:
 
 		unsigned int		sampleRate;		// Sample rate
-		unsigned int		subchunk2Size;		// Size of data
+		unsigned int		dataSize;		// Size of data
 		unsigned short		numOfChannels;		// Number of channels
 		unsigned short		bitsPerSample;		// Bits per sample
 
@@ -44,27 +45,26 @@ class WAVHeader {
 		WAVHeader(const WAVHeader&);
 		// Move c-tor
 		WAVHeader(WAVHeader&&);
-		
-		// Get audio format
-		unsigned short		getAudioFormat() const;
-		// Get number of channels
-		unsigned short		getNumOfChannels() const;
+
 		// Get sample rate
 		unsigned int		getSampleRate() const;
+		// Get data size
+		unsigned int		getDataSize() const;
+		// Get number of channels
+		unsigned short		getNumOfChannels() const;
+		// Get bits per sample
+		unsigned short		getBitsPerSample() const;
 		// Get byte rate
 		unsigned int		getByteRate() const;
 		// Get block align
 		unsigned short		getBlockAlign() const;
-		// Get bits per sample
-		unsigned short		getBitsPerSample() const;
-		
-		// Set audio format
-		void			setAudioFormat(const unsigned short&);
-		// Set number of channels
-		void			setNumOfChannels(const unsigned short&);
+
 		// Set sample rate
 		void			setSampleRate(const unsigned int&);
-
+		// Set data size
+		void			setDataSize(const unsigned int&);
+		// Set number of channels
+		void			setNumOfChannels(const unsigned short&);
 		// Set bits per sample
 		void			setBitsPerSample(const unsigned short&);
 
