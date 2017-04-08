@@ -1,3 +1,18 @@
+/////////////////////////////////////////////////////////
+//
+//	Name:		WAVHeader.hpp
+//
+//	Copyright:	Igor Baklykov © 2017
+//
+//	Author:		Igor Baklykov
+//
+//	Date:		08.04.2017 03:41
+//
+//	Description:	WAVE file header class
+//
+/////////////////////////////////////////////////////////
+
+
 #include <iostream>
 
 #include "../WAVHeader.hpp"

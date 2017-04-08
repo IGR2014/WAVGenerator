@@ -2,11 +2,11 @@
 //
 //	Name:		WAVHeader.hpp
 //
-//	Copyright:	Igor Baklykov Â© 2017
+//	Copyright:	Igor Baklykov © 2017
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		04.04.2017 22:50
+//	Date:		08.04.2017 03:41
 //
 //	Description:	WAVE file header class
 //
