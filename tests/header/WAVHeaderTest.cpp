@@ -15,7 +15,7 @@
 
 #include <iostream>
 
-#include "../WAVHeader.hpp"
+#include "../../WAVHeader.hpp"
 
 
 int main(int argc, char argv[]) {
