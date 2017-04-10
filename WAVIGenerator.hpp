@@ -8,8 +8,8 @@
 //
 //	Date:		09.04.2017 20:01
 //
-//	Description:	WAVE file generator class
-//			declaration
+//	Description:	WAVE file generator interface
+//			class declaration
 //
 /////////////////////////////////////////////////////////
 
@@ -22,13 +22,22 @@ class WAVIGenerator {
 
 	private:
 
+		double		frequency;		// Generated sound frequency
+		unsigned int	sampleRate;		// Generated sound sample rate
+		unsigned short	byteRate;		// Generated sound byte rate
+
+
 	public:
 
 		// C-tor
 		WAVIGenerator();
+		// Copy c-tor
+		WAVIGenerator(const WAVIGenerator&);
+		// Move c-tor
+		WAVIGenerator(WAVIGenerator&&);
 
-		// Generation function
-		virtual void generate() = 0;
+		// Generator function
+		virtual void	generate(char*, const int&) = 0;
 
 		// D-tor
 		virtual ~WAVIGenerator();

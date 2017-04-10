@@ -16,6 +16,7 @@
 #include <iostream>
 
 #include "../../WAVHeader.hpp"
+#include "../../generators/WAVSinGenerator.hpp"
 
 
 int main(int argc, char* argv[]) {
