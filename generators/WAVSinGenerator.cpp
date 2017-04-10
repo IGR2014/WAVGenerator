@@ -36,7 +36,8 @@ void WAVSinGenerator::generate(unsigned short* data, const unsigned int &dataSiz
 
 	for (unsigned int i = 0; i < dataSize; ++i) {
 
-		double freqQuant = 2.0 * M_PI * WAVIGenerator::getFrequency() / WAVIGenerator::getSampleRate();
+		double freq = 2.0 * M_PI * WAVIGenerator::getFrequency();
+		double freqQuant = freq / WAVIGenerator::getSampleRate();
 		data[i] = WAVIGenerator::getVolume() * sin(freqQuant * i);
 
 	}
