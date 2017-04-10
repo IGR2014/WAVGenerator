@@ -18,7 +18,7 @@
 
 
 // C-tor
-WAVIGenerator::WAVIGenerator() : frequency(0.0), sampleRate(48000), byteRate(2) {};
+WAVIGenerator::WAVIGenerator() : frequency(500.0), sampleRate(96000), byteRate(2), volume(32767) {};
 
 // Copy c-tor
 WAVIGenerator::WAVIGenerator(const WAVIGenerator &_g) {
@@ -28,6 +28,7 @@ WAVIGenerator::WAVIGenerator(const WAVIGenerator &_g) {
 		frequency	= _g.frequency;
 		sampleRate	= _g.sampleRate;
 		byteRate	= _g.byteRate;
+		volume		= _g.volume;
 
 	}
 
@@ -41,14 +42,46 @@ WAVIGenerator::WAVIGenerator(WAVIGenerator &&_g) {
 		frequency	= _g.frequency;
 		sampleRate	= _g.sampleRate;
 		byteRate	= _g.byteRate;
+		volume		= _g.volume;
 
 		_g.frequency	= 0.0;
 		_g.sampleRate	= 48000;
 		_g.byteRate	= 0;
+		_g.volume	= 0;
 
 	}
 
 };
+
+
+// Get frequency
+double WAVIGenerator::getFrequency() const {
+
+	return frequency;
+
+};
+
+// Get sample rate
+unsigned int WAVIGenerator::getSampleRate() const {
+
+	return sampleRate;
+
+};
+
+// Get byte rate
+unsigned short WAVIGenerator::getByteRate() const {
+
+	return byteRate;
+
+};
+
+// Get volume
+unsigned short WAVIGenerator::getVolume() const {
+
+	return volume;
+
+};
+
 
 // D-tor
 WAVIGenerator::~WAVIGenerator() {
@@ -56,6 +89,7 @@ WAVIGenerator::~WAVIGenerator() {
 	frequency	= 0.0;
 	sampleRate	= 0;
 	byteRate	= 0;
+	volume		= 0;
 
 }
 

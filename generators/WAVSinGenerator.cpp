@@ -14,6 +14,8 @@
 /////////////////////////////////////////////////////////
 
 
+#include <cmath>
+
 #include "WAVSinGenerator.hpp"
 
 
@@ -30,7 +32,15 @@ WAVSinGenerator::WAVSinGenerator(WAVSinGenerator &&_g) {
 };
 
 // Generator function
-void WAVSinGenerator::generate(char* data, const int &dataSize) {
+void WAVSinGenerator::generate(unsigned short* data, const unsigned int &dataSize) {
+
+	for (unsigned int i = 0; i < dataSize; ++i) {
+
+		double freqQuant = 2.0 * M_PI * WAVIGenerator::getFrequency() / WAVIGenerator::getSampleRate();
+		data[i] = WAVIGenerator::getVolume() * sin(freqQuant * i);
+
+	}
+
 };
 
 // D-tor

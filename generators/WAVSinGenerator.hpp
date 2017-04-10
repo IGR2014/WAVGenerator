@@ -36,7 +36,7 @@ class WAVSinGenerator : public WAVIGenerator {
 		WAVSinGenerator(WAVSinGenerator&&);
 
 		// Generator function
-		virtual void generate(char*, const int&) override final;
+		virtual void generate(unsigned short*, const unsigned int&) override final;
 
 		// D-tor
 		~WAVSinGenerator();

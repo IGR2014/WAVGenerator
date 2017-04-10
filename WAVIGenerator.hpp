@@ -25,6 +25,7 @@ class WAVIGenerator {
 		double		frequency;		// Generated sound frequency
 		unsigned int	sampleRate;		// Generated sound sample rate
 		unsigned short	byteRate;		// Generated sound byte rate
+		unsigned short	volume;			// Generated sound volume
 
 
 	public:
@@ -37,7 +38,16 @@ class WAVIGenerator {
 		WAVIGenerator(WAVIGenerator&&);
 
 		// Generator function
-		virtual void	generate(char*, const int&) = 0;
+		virtual void	generate(unsigned short*, const unsigned int&) = 0;
+
+		// Get frequency
+		double		getFrequency() const;
+		// Get sample rate
+		unsigned int	getSampleRate() const;
+		// Get byte rate
+		unsigned short	getByteRate() const;
+		// Get volume
+		unsigned short	getVolume() const;
 
 		// D-tor
 		virtual ~WAVIGenerator();
