@@ -6,7 +6,7 @@
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		09.04.2017 20:01
+//	Date:		11.04.2017 23:28
 //
 //	Description:	WAVE file generator test
 //
@@ -26,10 +26,11 @@ int main(int argc, char* argv[]) {
 	unsigned short* data = new unsigned short[dataSize];
 
 	WAVHeader header;
-	header.write((char*)data);
 	header.setDataSize((dataSize - 22) * 2);
+	header.write((char*)data);
 
 	WAVSinGenerator sin;
+	sin.setFrequency(30000.0);
 	sin.generate((data + 22), dataSize - 22);
 
 	std::ofstream file;
