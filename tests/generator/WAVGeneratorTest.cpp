@@ -18,6 +18,7 @@
 
 #include "../../WAVHeader.hpp"
 #include "../../generators/WAVSinGenerator.hpp"
+#include "../../generators/WAVSawGenerator.hpp"
 
 
 int main(int argc, char* argv[]) {
@@ -29,8 +30,8 @@ int main(int argc, char* argv[]) {
 	header.setDataSize((dataSize - 22) * 2);
 	header.write((char*)data);
 
-	WAVSinGenerator sin;
-	sin.setFrequency(30000.0);
+	WAVSawGenerator sin;
+	sin.setFrequency(440.0);
 	sin.generate((data + 22), dataSize - 22);
 
 	std::ofstream file;
