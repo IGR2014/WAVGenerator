@@ -6,7 +6,7 @@
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		09.04.2017 20:01
+//	Date:		11.04.2017 23:28
 //
 //	Description:	WAVE file generator interface
 //			class declaration
@@ -48,6 +48,15 @@ class WAVIGenerator {
 		unsigned short	getByteRate() const;
 		// Get volume
 		unsigned short	getVolume() const;
+
+		// Set frequency
+		void		setFrequency(const double&);
+		// Set sample rate
+		void		setSampleRate(const unsigned int&);
+		// Set byte rate
+		void		setByteRate(const unsigned short&);
+		// Set volume
+		void		setVolume(const unsigned short&);
 
 		// D-tor
 		virtual ~WAVIGenerator();

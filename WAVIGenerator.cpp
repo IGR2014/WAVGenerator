@@ -6,7 +6,7 @@
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		09.04.2017 20:01
+//	Date:		11.04.2017 23:28
 //
 //	Description:	WAVE file generator interface
 //			class definition
@@ -79,6 +79,34 @@ unsigned short WAVIGenerator::getByteRate() const {
 unsigned short WAVIGenerator::getVolume() const {
 
 	return volume;
+
+};
+
+// Set frequency
+void WAVIGenerator::setFrequency(const double &_frequency) {
+
+	frequency = _frequency;
+
+};
+
+// Set sample rate
+void WAVIGenerator::setSampleRate(const unsigned int &_sampleRate) {
+
+	sampleRate = _sampleRate;
+
+};
+
+// Set byte rate
+void WAVIGenerator::setByteRate(const unsigned short &_byteRate) {
+
+	byteRate = _byteRate;
+
+};
+
+// Set volume
+void WAVIGenerator::setVolume(const unsigned short &_volume) {
+
+	volume = _volume;
 
 };
 
