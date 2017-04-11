@@ -20,7 +20,7 @@
 #include "../WAVIGenerator.hpp"
 
 
-// wav file data sin generator
+// Wav file data sin generator
 class WAVSinGenerator : public WAVIGenerator {
 
 	private:
@@ -29,17 +29,17 @@ class WAVSinGenerator : public WAVIGenerator {
 	public:
 
 		// C-tor
-		WAVSinGenerator();
+		WAVSinGenerator() = default;
 		// Copy c-tor
-		WAVSinGenerator(const WAVSinGenerator&);
+		WAVSinGenerator(const WAVSinGenerator&) = default;
 		// Move c-tor
-		WAVSinGenerator(WAVSinGenerator&&);
+		WAVSinGenerator(WAVSinGenerator&&) = default;
 
 		// Generator function
 		virtual void generate(unsigned short*, const unsigned int&) override final;
 
 		// D-tor
-		~WAVSinGenerator();
+		~WAVSinGenerator() = default;
 
 };
 
