@@ -27,7 +27,7 @@ void WAVSquareGenerator::generate(unsigned short* data, const unsigned int &data
 
 	for (unsigned int i = 0; i < dataSize; ++i) {
 
-		data[i] = WAVIGenerator::getVolume() * sgn(sin(freqQuant * i));
+		data[i] = WAVIGenerator::getVolume() * ((sin(freqQuant * i) < 0) ? -1 : 1);
 
 	}
 
