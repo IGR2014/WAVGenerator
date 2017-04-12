@@ -6,7 +6,7 @@
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		12.04.2017 15:54
+//	Date:		12.04.2017 17:11
 //
 //	Description:	WAVE file generators test
 //
@@ -24,19 +24,36 @@
 
 int main(int argc, char* argv[]) {
 
-	unsigned int dataSize = 48000;
-	unsigned short* data = new unsigned short[dataSize + 22];
+	unsigned int	dataSize	= 48000;
+	unsigned short*	data		= new unsigned short[dataSize + 22];
+
+	std::ofstream	file;
 
 	WAVHeader header;
 	header.setDataSize(dataSize * 2);
 	header.write((char*)data);
 
-	WAVSquareGenerator gen;
-	gen.setFrequency(440.0);
-	gen.generate((data + 22), dataSize);
+	WAVSinGenerator sinGen;
+	sinGen.setFrequency(440.0);
+	sinGen.generate((data + 22), dataSize);
 
-	std::ofstream file;
-	file.open("file.wav", std::ios::out | std::ios::binary);
+	file.open("sin.wav", std::ios::out | std::ios::binary);
+	file.write((char*)data, (dataSize + 22) * 2);
+	file.close();
+
+	WAVSawGenerator sawGen;
+	sawGen.setFrequency(440.0);
+	sawGen.generate((data + 22), dataSize);
+
+	file.open("saw.wav", std::ios::out | std::ios::binary);
+	file.write((char*)data, (dataSize + 22) * 2);
+	file.close();
+
+	WAVSquareGenerator sqrGen;
+	sqrGen.setFrequency(440.0);
+	sqrGen.generate((data + 22), dataSize);
+
+	file.open("square.wav", std::ios::out | std::ios::binary);
 	file.write((char*)data, (dataSize + 22) * 2);
 	file.close();
 
