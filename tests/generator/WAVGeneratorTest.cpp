@@ -6,9 +6,9 @@
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		11.04.2017 23:28
+//	Date:		12.04.2017 15:54
 //
-//	Description:	WAVE file generator test
+//	Description:	WAVE file generators test
 //
 /////////////////////////////////////////////////////////
 
@@ -19,24 +19,25 @@
 #include "../../WAVHeader.hpp"
 #include "../../generators/WAVSinGenerator.hpp"
 #include "../../generators/WAVSawGenerator.hpp"
+#include "../../generators/WAVSquareGenerator.hpp"
 
 
 int main(int argc, char* argv[]) {
 
-	unsigned int dataSize = 96022;
-	unsigned short* data = new unsigned short[dataSize];
+	unsigned int dataSize = 48000;
+	unsigned short* data = new unsigned short[dataSize + 22];
 
 	WAVHeader header;
-	header.setDataSize((dataSize - 22) * 2);
+	header.setDataSize(dataSize * 2);
 	header.write((char*)data);
 
-	WAVSawGenerator sin;
-	sin.setFrequency(440.0);
-	sin.generate((data + 22), dataSize - 22);
+	WAVSquareGenerator gen;
+	gen.setFrequency(440.0);
+	gen.generate((data + 22), dataSize);
 
 	std::ofstream file;
 	file.open("file.wav", std::ios::out | std::ios::binary);
-	file.write((char*)data, dataSize * 2);
+	file.write((char*)data, (dataSize + 22) * 2);
 	file.close();
 
 	delete [] data;
