@@ -7,6 +7,6 @@ compiler:
 
 script:
   - cd tests/header
-  - make -B -f tests/header/Makefile
+  - make -B -f Makefile
   - cd ../generator
-  - make -B -f tests/generator/Makefile
+  - make -B -f Makefile
