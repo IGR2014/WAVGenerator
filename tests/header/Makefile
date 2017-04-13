@@ -18,7 +18,7 @@ $(BIN): $(OBJ)
 WAVHeaderTest.o: tests/header/WAVHeaderTest.cpp
 	$(CXX) -c tests/header/WAVHeaderTest.cpp -o WAVHeaderTest.o $(CXXFLAGS)
 
-../../WAVHeader.o: WAVHeader.cpp
+WAVHeader.o: WAVHeader.cpp
 	$(CXX) -c WAVHeader.cpp -o WAVHeader.o $(CXXFLAGS)
 
 run:
