@@ -1,9 +1,8 @@
-CPP      = g++.exe
-CC       = gcc.exe
+CPP      = g++
 OBJ      = WAVHeaderTest.o ../../WAVHeader.o
-BIN      = WAVHeaderTest.a
+BIN      = WAVHeaderTest
 CXXFLAGS = -Os -m64 -std=gnu++11 -w -Wall -Wextra -pedantic -Werror -pipe
-RM       = rm.exe -f
+RM       = rm -f
 
 .PHONY: all all-before all-after clean clean-custom
 
