@@ -2,11 +2,11 @@
 //
 //	Name:		WAVSquareGenerator.cpp
 //
-//	Copyright:	Igor Baklykov © 2017
+//	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		12.04.2017 15:54
+//	Date:		13.04.2017 22:42
 //
 //	Description:	WAVE file square generator
 //			class definition
@@ -14,6 +14,7 @@
 /////////////////////////////////////////////////////////
 
 
+#undef __STRICT_ANSI__
 #include <cmath>
 
 #include "WAVSquareGenerator.hpp"
@@ -22,14 +23,12 @@
 // Generator function
 void WAVSquareGenerator::generate(unsigned short* data, const unsigned int &dataSize) {
 
-	double freq = 2.0 * M_PI * WAVIGenerator::getFrequency();
-	double freqQuant = freq / WAVIGenerator::getSampleRate();
+	double freqQuant = 2.0 * M_PI * getFrequency() / getSampleRate();
 
 	for (unsigned int i = 0; i < dataSize; ++i) {
 
-		data[i] = WAVIGenerator::getVolume() * ((sin(freqQuant * i) < 0) ? -1 : 1);
+		data[i] = getVolume() * ((sin(freqQuant * i) < 0) ? -1 : 1);
 
 	}
 
 };
-

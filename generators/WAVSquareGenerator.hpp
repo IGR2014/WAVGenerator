@@ -2,7 +2,7 @@
 //
 //	Name:		WAVSquareGenerator.hpp
 //
-//	Copyright:	Igor Baklykov © 2017
+//	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
@@ -42,4 +42,3 @@ class WAVSquareGenerator : public WAVIGenerator {
 		~WAVSquareGenerator() = default;
 
 };
-

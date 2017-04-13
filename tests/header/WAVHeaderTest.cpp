@@ -2,7 +2,7 @@
 //
 //	Name:		WAVHeaderTest.cpp
 //
-//	Copyright:	Igor Baklykov © 2017
+//	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
@@ -42,4 +42,3 @@ int main(int argc, char* argv[]) {
 	return 0;
 
 }
-

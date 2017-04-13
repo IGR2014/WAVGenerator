@@ -2,7 +2,7 @@ CXX		?= g++
 OBJ		= WAVGeneratorTest.o ../../WAVHeader.o ../../WAVIGenerator.o ../../generators/WAVSinGenerator.o ../../generators/WAVSawGenerator.o ../../generators/WAVSquareGenerator.o
 LIBS		= -static-libgcc -m64 -s
 BIN		= WAVGeneratorTest
-CXXFLAGS	= -Os -m64 -std=c++0x -w -Wall -Wextra -pedantic -Werror -pipe
+CXXFLAGS	= -Os -m64 -std=c++11 -w -Wall -Wextra -pedantic -Werror -pipe
 RM		= rm -f
 
 .PHONY: all all-before all-after clean clean-custom

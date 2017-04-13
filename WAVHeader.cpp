@@ -2,7 +2,7 @@
 //
 //	Name:		WAVHeader.cpp
 //
-//	Copyright:	Igor Baklykov © 2017
+//	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
@@ -36,7 +36,7 @@ WAVHeader::WAVHeader(const WAVHeader &_w) {
 		dataSize		= _w.dataSize;
 		numOfChannels		= _w.numOfChannels;
 		bitsPerSample		= _w.bitsPerSample;
-	
+
 	}
 
 };
@@ -55,7 +55,7 @@ WAVHeader::WAVHeader(WAVHeader &&_w) {
 		_w.dataSize		= 0;
 		_w.numOfChannels	= 1;
 		_w.bitsPerSample	= 16;
-	
+
 	}
 
 };
@@ -149,11 +149,11 @@ bool WAVHeader::write(const char *_buffer) const {
 	*(unsigned short*)&_buffer[34]	= bitsPerSample;
 	*(unsigned int*)&_buffer[36]	= WAV_DATA_SUBCHUNK_ID;
 	*(unsigned int*)&_buffer[40]	= dataSize;
-	
+
 	return true;
 
 };
-		
+
 
 // D-tor
 WAVHeader::~WAVHeader() {
@@ -164,4 +164,3 @@ WAVHeader::~WAVHeader() {
 	bitsPerSample	= 0;
 
 };
-

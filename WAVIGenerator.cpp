@@ -2,7 +2,7 @@
 //
 //	Name:		WAVIGenerator.cpp
 //
-//	Copyright:	Igor Baklykov © 2017
+//	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
@@ -120,4 +120,3 @@ WAVIGenerator::~WAVIGenerator() {
 	volume		= 0;
 
 }
-

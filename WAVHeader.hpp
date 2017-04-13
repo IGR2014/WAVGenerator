@@ -2,7 +2,7 @@
 //
 //	Name:		WAVHeader.hpp
 //
-//	Copyright:	Igor Baklykov © 2017
+//	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
@@ -71,9 +71,8 @@ class WAVHeader {
 
 		// Write header
 		bool			write(const char*) const;
-		
+
 		// D-tor
 		~WAVHeader();
 
 };
-

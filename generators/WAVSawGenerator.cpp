@@ -2,11 +2,11 @@
 //
 //	Name:		WAVSawGenerator.cpp
 //
-//	Copyright:	Igor Baklykov © 2017
+//	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		09.04.2017 20:01
+//	Date:		13.04.2017 22:42
 //
 //	Description:	WAVE file saw generator
 //			class definition
@@ -14,6 +14,7 @@
 /////////////////////////////////////////////////////////
 
 
+#undef __STRICT_ANSI__
 #include <cmath>
 
 #include "WAVSawGenerator.hpp"
@@ -22,8 +23,8 @@
 // Generator function
 void WAVSawGenerator::generate(unsigned short* data, const unsigned int &dataSize) {
 
-	double freqQuant = WAVIGenerator::getFrequency() / WAVIGenerator::getSampleRate();
-	unsigned short volume =  WAVIGenerator::getVolume() * 2;
+	double freqQuant = getFrequency() / getSampleRate();
+	unsigned short volume =  getVolume() * 2;
 
 	for (unsigned int i = 0; i < dataSize; ++i) {
 
@@ -32,4 +33,3 @@ void WAVSawGenerator::generate(unsigned short* data, const unsigned int &dataSiz
 	}
 
 };
-
