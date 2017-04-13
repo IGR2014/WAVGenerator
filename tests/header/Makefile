@@ -15,11 +15,11 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CXX) $(OBJ) -o $(BIN) $(LIBS)
 
-../../WAVHeader.o: ../../WAVHeader.cpp
-	$(CXX) -c ../../WAVHeader.cpp -o ../../WAVHeader.o $(CXXFLAGS)
-
 WAVHeaderTest.o: WAVHeaderTest.cpp
 	$(CXX) -c WAVHeaderTest.cpp -o WAVHeaderTest.o $(CXXFLAGS)
+
+../../WAVHeader.o: ../../WAVHeader.cpp
+	$(CXX) -c ../../WAVHeader.cpp -o ../../WAVHeader.o $(CXXFLAGS)
 
 run:
 	$(BIN)
