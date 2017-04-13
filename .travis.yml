@@ -1,7 +1,9 @@
-language: cpp
+language:
+  cpp
 
 compiler:
   - clang
   - gcc
 
-script: make -f tests/header/Makefile
+script:
+  make -B -f tests/header/Makefile
