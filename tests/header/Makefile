@@ -2,7 +2,7 @@ CXX		?= g++
 OBJ		= WAVHeaderTest.o ../../WAVHeader.o
 LIBS		= -static-libgcc -m64 -s
 BIN		= WAVHeaderTest
-CXXFLAGS	= -Os -m64 -std=c++11 -w -Wall -Wextra -pedantic -Werror -pipe
+CXXFLAGS	= -Os -m64 -std=c++0x -w -Wall -Wextra -pedantic -Werror -pipe
 RM		= rm -f
 
 .PHONY: all all-before all-after clean clean-custom
