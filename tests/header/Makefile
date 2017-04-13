@@ -1,5 +1,4 @@
 CPP      = g++
-CC       = gcc
 OBJ      = WAVHeaderTest.o ../../WAVHeader.o
 LIBS     = -static-libgcc -m64 -s
 BIN      = WAVHeaderTest
@@ -16,11 +15,11 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(OBJ) -o $(BIN) $(LIBS)
 
-WAVHeaderTest.o: WAVHeaderTest.cpp
-	$(CPP) -c WAVHeaderTest.cpp -o WAVHeaderTest.o $(CXXFLAGS)
-
 ../../WAVHeader.o: ../../WAVHeader.cpp
 	$(CPP) -c ../../WAVHeader.cpp -o ../../WAVHeader.o $(CXXFLAGS)
+
+WAVHeaderTest.o: WAVHeaderTest.cpp
+	$(CPP) -c WAVHeaderTest.cpp -o WAVHeaderTest.o $(CXXFLAGS)
 
 run:
 	$(BIN)
