@@ -6,4 +6,6 @@ compiler:
   - gcc
 
 script:
-  make -B -f tests/header/Makefile
+  - mkdir build
+  - cd build
+  - cmake .. && make
