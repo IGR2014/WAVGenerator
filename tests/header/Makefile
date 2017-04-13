@@ -13,13 +13,13 @@ clean: clean-custom
 	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
-	$(CPP) $(OBJ) -o $(BIN) $(LIBS)
+	$(CXX) $(OBJ) -o $(BIN) $(LIBS)
 
 ../../WAVHeader.o: ../../WAVHeader.cpp
-	$(CPP) -c ../../WAVHeader.cpp -o ../../WAVHeader.o $(CXXFLAGS)
+	$(CXX) -c ../../WAVHeader.cpp -o ../../WAVHeader.o $(CXXFLAGS)
 
 WAVHeaderTest.o: WAVHeaderTest.cpp
-	$(CPP) -c WAVHeaderTest.cpp -o WAVHeaderTest.o $(CXXFLAGS)
+	$(CXX) -c WAVHeaderTest.cpp -o WAVHeaderTest.o $(CXXFLAGS)
 
 run:
 	$(BIN)
