@@ -5,6 +5,8 @@ compiler:
   - clang
   - gcc
 
+before_install: cd project
+
 script:
   - make -B -f tests/header/Makefile
   - make -B -f tests/generator/Makefile
