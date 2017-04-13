@@ -5,8 +5,6 @@ compiler:
   - clang
   - gcc
 
-before_install: cd WAVGenerator
-
 script:
   - make -B -f tests/header/Makefile
   - make -B -f tests/generator/Makefile
