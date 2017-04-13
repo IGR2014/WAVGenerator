@@ -1,4 +1,4 @@
-export CXX	= g++
+CXX		?= g++
 OBJ		= WAVHeaderTest.o ../../WAVHeader.o
 LIBS		= -static-libgcc -m64 -s
 BIN		= WAVHeaderTest
