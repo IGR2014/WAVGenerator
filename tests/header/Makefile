@@ -1,10 +1,6 @@
-# Project: WAVHeaderTest
-# Makefile created by Dev-C++ 5.11
-
 CPP      = g++.exe
 CC       = gcc.exe
 OBJ      = WAVHeaderTest.o ../../WAVHeader.o
-LINKOBJ  = WAVHeaderTest.o ../../WAVHeader.o
 BIN      = WAVHeaderTest.a
 CXXFLAGS = -Os -m64 -std=gnu++11 -w -Wall -Wextra -pedantic -Werror -pipe
 RM       = rm.exe -f
@@ -17,7 +13,7 @@ clean: clean-custom
 	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
-	$(CPP) $(LINKOBJ) -o $(BIN)
+	$(CPP) $(OBJ) -o $(BIN)
 
 WAVHeaderTest.o: WAVHeaderTest.cpp
 	$(CPP) -c WAVHeaderTest.cpp -o WAVHeaderTest.o $(CXXFLAGS)
