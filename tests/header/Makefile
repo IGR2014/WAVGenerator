@@ -1,9 +1,9 @@
-CXX      = g++
-OBJ      = WAVHeaderTest.o ../../WAVHeader.o
-LIBS     = -static-libgcc -m64 -s
-BIN      = WAVHeaderTest
-CXXFLAGS = -Os -m64 -std=gnu++11 -w -Wall -Wextra -pedantic -Werror -pipe
-RM       = rm -f
+export CXX	= g++
+OBJ		= WAVHeaderTest.o ../../WAVHeader.o
+LIBS		= -static-libgcc -m64 -s
+BIN		= WAVHeaderTest
+CXXFLAGS	= -Os -m64 -std=gnu++11 -w -Wall -Wextra -pedantic -Werror -pipe
+RM		= rm -f
 
 .PHONY: all all-before all-after clean clean-custom
 
