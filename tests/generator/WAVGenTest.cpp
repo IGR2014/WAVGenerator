@@ -17,9 +17,9 @@
 #include <fstream>
 
 #include "../../WAVHeader.hpp"
-#include "../../generators/WAVSinGenerator.hpp"
-#include "../../generators/WAVSawGenerator.hpp"
-#include "../../generators/WAVSquareGenerator.hpp"
+#include "../../generators/WAVSinGen.hpp"
+#include "../../generators/WAVSawGen.hpp"
+#include "../../generators/WAVSquareGen.hpp"
 
 
 int main(int argc, char* argv[]) {

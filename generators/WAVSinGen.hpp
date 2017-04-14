@@ -17,7 +17,7 @@
 #pragma once
 
 
-#include "../WAVIGenerator.hpp"
+#include "../WAVIGen.hpp"
 
 
 // Wav file data sin generator

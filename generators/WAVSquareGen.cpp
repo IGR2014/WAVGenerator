@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////
 //
-//	Name:		WAVSawGenerator.cpp
+//	Name:		WAVSquareGenerator.cpp
 //
 //	Copyright:	Igor Baklykov (c) 2017
 //
@@ -8,7 +8,7 @@
 //
 //	Date:		13.04.2017 22:42
 //
-//	Description:	WAVE file saw generator
+//	Description:	WAVE file square generator
 //			class definition
 //
 /////////////////////////////////////////////////////////
@@ -17,18 +17,17 @@
 #undef __STRICT_ANSI__
 #include <cmath>
 
-#include "WAVSawGenerator.hpp"
+#include "WAVSquareGen.hpp"
 
 
 // Generator function
-void WAVSawGenerator::generate(unsigned short* data, const unsigned int &dataSize) {
+void WAVSquareGenerator::generate(unsigned short* data, const unsigned int &dataSize) {
 
-	double freqQuant = getFrequency() / getSampleRate();
-	unsigned short volume =  getVolume() * 2;
+	double freqQuant = 2.0 * M_PI * getFrequency() / getSampleRate();
 
 	for (unsigned int i = 0; i < dataSize; ++i) {
 
-		data[i] = fmod(freqQuant * i, 1) * volume;
+		data[i] = getVolume() * ((sin(freqQuant * i) < 0) ? -1 : 1);
 
 	}
 

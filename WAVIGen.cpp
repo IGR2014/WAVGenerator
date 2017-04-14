@@ -14,7 +14,7 @@
 /////////////////////////////////////////////////////////
 
 
-#include "WAVIGenerator.hpp"
+#include "WAVIGen.hpp"
 
 
 // C-tor
