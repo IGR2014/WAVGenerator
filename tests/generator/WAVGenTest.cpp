@@ -31,14 +31,14 @@ int main(int argc, char* argv[]) {
 
 	WAVHeader header;
 	header.setDataSize(dataSize * 2);
-	header.write((char*)data);
+	header.write(static_cast<char*>(data));
 
 	WAVSinGenerator sinGen;
 	sinGen.setFrequency(440.0);
 	sinGen.generate((data + 22), dataSize);
 
 	file.open("sin.wav", std::ios::out | std::ios::binary);
-	file.write((char*)data, (dataSize + 22) * 2);
+	file.write(static_cast<char*>(data), (dataSize + 22) * 2);
 	file.close();
 
 	WAVSawGenerator sawGen;
@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
 	sawGen.generate((data + 22), dataSize);
 
 	file.open("saw.wav", std::ios::out | std::ios::binary);
-	file.write((char*)data, (dataSize + 22) * 2);
+	file.write(static_cast<char*>(data), (dataSize + 22) * 2);
 	file.close();
 
 	WAVSquareGenerator sqrGen;
@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
 	sqrGen.generate((data + 22), dataSize);
 
 	file.open("square.wav", std::ios::out | std::ios::binary);
-	file.write((char*)data, (dataSize + 22) * 2);
+	file.write(static_cast<char*>(data), (dataSize + 22) * 2);
 	file.close();
 
 	delete [] data;
