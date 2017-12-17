@@ -21,7 +21,7 @@
 wavIGen::wavIGen() : frequency(500.0), sampleRate(96000), byteRate(2), volume(32767) {};
 
 // Copy c-tor
-wavIGen::wavIGen(const WAVIGenerator &_g) {
+wavIGen::wavIGen(const wavIGen &_g) {
 
 	if (&_g != this) {
 

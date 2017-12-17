@@ -25,6 +25,7 @@
 
 int main(int argc, char* argv[]) {
 
+	float		frequency	= 440.0;
 	unsigned short	volume		= 16384;
 	unsigned int	dataSize	= 48000;
 	unsigned short*	data		= new unsigned short[dataSize + 22];
@@ -36,7 +37,7 @@ int main(int argc, char* argv[]) {
 	header.write(reinterpret_cast<char*>(data));
 
 	wavGenSin sinGen;
-	sinGen.setFrequency(440.0);
+	sinGen.setFrequency(frequency);
 	sinGen.setSampleRate(dataSize);
 	sinGen.setVolume(volume);
 	sinGen.generate((data + 22), dataSize);
@@ -46,7 +47,7 @@ int main(int argc, char* argv[]) {
 	file.close();
 
 	wavGenSaw sawGen;
-	sawGen.setFrequency(440.0);
+	sawGen.setFrequency(frequency);
 	sawGen.setSampleRate(dataSize);
 	sawGen.setVolume(volume);
 	sawGen.generate((data + 22), dataSize);
@@ -56,7 +57,7 @@ int main(int argc, char* argv[]) {
 	file.close();
 
 	wavGenSqr sqrGen;
-	sqrGen.setFrequency(440.0);
+	sqrGen.setFrequency(frequency);
 	sqrGen.setSampleRate(dataSize);
 	sqrGen.setVolume(volume);
 	sqrGen.generate((data + 22), dataSize);
