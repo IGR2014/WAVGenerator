@@ -31,30 +31,36 @@ int main(int argc, char* argv[]) {
 
 	WAVHeader header;
 	header.setDataSize(dataSize * 2);
-	header.write(static_cast<char*>(data));
+	header.write(reinterpret_cast<char*>(data));
 
 	WAVSinGenerator sinGen;
 	sinGen.setFrequency(440.0);
+	sinGen.setSampleRate(dataSize);
+	sinGen.setVolume(16384);
 	sinGen.generate((data + 22), dataSize);
 
 	file.open("sin.wav", std::ios::out | std::ios::binary);
-	file.write(static_cast<char*>(data), (dataSize + 22) * 2);
+	file.write(reinterpret_cast<char*>(data), (dataSize + 22) * 2);
 	file.close();
 
 	WAVSawGenerator sawGen;
 	sawGen.setFrequency(440.0);
+	sawGen.setSampleRate(dataSize);
+	sawGen.setVolume(16384);
 	sawGen.generate((data + 22), dataSize);
 
 	file.open("saw.wav", std::ios::out | std::ios::binary);
-	file.write(static_cast<char*>(data), (dataSize + 22) * 2);
+	file.write(reinterpret_cast<char*>(data), (dataSize + 22) * 2);
 	file.close();
 
 	WAVSquareGenerator sqrGen;
 	sqrGen.setFrequency(440.0);
+	sqrGen.setSampleRate(dataSize);
+	sqrGen.setVolume(16384);
 	sqrGen.generate((data + 22), dataSize);
 
 	file.open("square.wav", std::ios::out | std::ios::binary);
-	file.write(static_cast<char*>(data), (dataSize + 22) * 2);
+	file.write(reinterpret_cast<char*>(data), (dataSize + 22) * 2);
 	file.close();
 
 	delete [] data;
