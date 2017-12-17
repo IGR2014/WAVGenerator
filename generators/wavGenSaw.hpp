@@ -1,14 +1,14 @@
 /////////////////////////////////////////////////////////
 //
-//	Name:		WAVSquareGenerator.hpp
+//	Name:		WAVSawGenerator.hpp
 //
 //	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		12.04.2017 15:54
+//	Date:		09.04.2017 20:01
 //
-//	Description:	WAVE file square generator
+//	Description:	WAVE file saw generator
 //			class declaration
 //
 /////////////////////////////////////////////////////////
@@ -17,11 +17,11 @@
 #pragma once
 
 
-#include "../WAVIGen.hpp"
+#include "../wavIGen.hpp"
 
 
-// Wav file data square generator
-class WAVSquareGenerator : public WAVIGenerator {
+// Wav file data saw generator
+class wavGenSaw : public wavIGen {
 
 	private:
 
@@ -29,16 +29,16 @@ class WAVSquareGenerator : public WAVIGenerator {
 	public:
 
 		// C-tor
-		WAVSquareGenerator() = default;
+		wavGenSaw() = default;
 		// Copy c-tor
-		WAVSquareGenerator(const WAVSquareGenerator&) = default;
+		wavGenSaw(const wavGenSaw&) = default;
 		// Move c-tor
-		WAVSquareGenerator(WAVSquareGenerator&&) = default;
+		wavGenSaw(wavGenSaw&&) = default;
 
 		// Generator function
 		virtual void generate(unsigned short*, const unsigned int&) override final;
 
 		// D-tor
-		~WAVSquareGenerator() = default;
+		~wavGenSaw() = default;
 
 };

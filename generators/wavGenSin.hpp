@@ -17,11 +17,11 @@
 #pragma once
 
 
-#include "../WAVIGen.hpp"
+#include "../wavIGen.hpp"
 
 
 // Wav file data sin generator
-class WAVSinGenerator : public WAVIGenerator {
+class wavGenSin : public wavIGen {
 
 	private:
 
@@ -29,16 +29,16 @@ class WAVSinGenerator : public WAVIGenerator {
 	public:
 
 		// C-tor
-		WAVSinGenerator() = default;
+		wavGenSin() = default;
 		// Copy c-tor
-		WAVSinGenerator(const WAVSinGenerator&) = default;
+		wavGenSin(const wavGenSin&) = default;
 		// Move c-tor
-		WAVSinGenerator(WAVSinGenerator&&) = default;
+		wavGenSin(wavGenSin&&) = default;
 
 		// Generator function
 		virtual void generate(unsigned short*, const unsigned int&) override final;
 
 		// D-tor
-		~WAVSinGenerator() = default;
+		~wavGenSin() = default;
 
 };

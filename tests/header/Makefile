@@ -1,7 +1,7 @@
 CXX		?= g++
-OBJ		= WAVHeaderTest.o ../../WAVHeader.o
+OBJ		= wavTestHeader.o ../../wavHeader.o
 LIBS		= -static-libgcc -m64 -s
-BIN		= WAVHeaderTest
+BIN		= wavTestHeader
 CXXFLAGS	= -Os -m64 -std=c++11 -w -Wall -Wextra -pedantic -Werror -pipe
 RM		= rm -f
 
@@ -15,11 +15,11 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CXX) $(OBJ) -o $(BIN) $(LIBS)
 
-WAVHeaderTest.o: WAVHeaderTest.cpp
-	$(CXX) -c WAVHeaderTest.cpp -o WAVHeaderTest.o $(CXXFLAGS)
+wavTestHeader.o: wavTestHeader.cpp
+	$(CXX) -c wavTestHeader.cpp -o wavTestHeader.o $(CXXFLAGS)
 
-../../WAVHeader.o: ../../WAVHeader.cpp
-	$(CXX) -c ../../WAVHeader.cpp -o ../../WAVHeader.o $(CXXFLAGS)
+../../wavHeader.o: ../../wavHeader.cpp
+	$(CXX) -c ../../wavHeader.cpp -o ../../wavHeader.o $(CXXFLAGS)
 
 run:
 	$(BIN)

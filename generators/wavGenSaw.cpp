@@ -17,11 +17,11 @@
 #undef __STRICT_ANSI__
 #include <cmath>
 
-#include "WAVSawGen.hpp"
+#include "wavGenSaw.hpp"
 
 
 // Generator function
-void WAVSawGenerator::generate(unsigned short* data, const unsigned int &dataSize) {
+void wavGenSaw::generate(unsigned short* data, const unsigned int &dataSize) {
 
 	double freqQuant = getFrequency() / getSampleRate();
 	unsigned short volume = getVolume() * 2;

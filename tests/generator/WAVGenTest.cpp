@@ -16,14 +16,16 @@
 #include <iostream>
 #include <fstream>
 
-#include "../../WAVHeader.hpp"
-#include "../../generators/WAVSinGen.hpp"
-#include "../../generators/WAVSawGen.hpp"
-#include "../../generators/WAVSquareGen.hpp"
+
+#include "../../wavHeader.hpp"
+#include "../../generators/wavGenSin.hpp"
+#include "../../generators/wavGenSaw.hpp"
+#include "../../generators/wavGenSqr.hpp"
 
 
 int main(int argc, char* argv[]) {
 
+	unsigned short	volume		= 16384;
 	unsigned int	dataSize	= 48000;
 	unsigned short*	data		= new unsigned short[dataSize + 22];
 
@@ -33,30 +35,30 @@ int main(int argc, char* argv[]) {
 	header.setDataSize(dataSize * 2);
 	header.write(reinterpret_cast<char*>(data));
 
-	WAVSinGenerator sinGen;
+	wavGenSin sinGen;
 	sinGen.setFrequency(440.0);
 	sinGen.setSampleRate(dataSize);
-	sinGen.setVolume(16384);
+	sinGen.setVolume(volume);
 	sinGen.generate((data + 22), dataSize);
 
 	file.open("sin.wav", std::ios::out | std::ios::binary);
 	file.write(reinterpret_cast<char*>(data), (dataSize + 22) * 2);
 	file.close();
 
-	WAVSawGenerator sawGen;
+	wavGenSaw sawGen;
 	sawGen.setFrequency(440.0);
 	sawGen.setSampleRate(dataSize);
-	sawGen.setVolume(16384);
+	sawGen.setVolume(volume);
 	sawGen.generate((data + 22), dataSize);
 
 	file.open("saw.wav", std::ios::out | std::ios::binary);
 	file.write(reinterpret_cast<char*>(data), (dataSize + 22) * 2);
 	file.close();
 
-	WAVSquareGenerator sqrGen;
+	wavGenSqr sqrGen;
 	sqrGen.setFrequency(440.0);
 	sqrGen.setSampleRate(dataSize);
-	sqrGen.setVolume(16384);
+	sqrGen.setVolume(volume);
 	sqrGen.generate((data + 22), dataSize);
 
 	file.open("square.wav", std::ios::out | std::ios::binary);

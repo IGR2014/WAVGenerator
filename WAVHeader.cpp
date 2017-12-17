@@ -14,11 +14,11 @@
 /////////////////////////////////////////////////////////
 
 
-#include "WAVHeader.hpp"
+#include "wavHeader.hpp"
 
 
 // Default c-tor
-WAVHeader::WAVHeader() {
+wavHeader::wavHeader() {
 
 	sampleRate	= 48000;
 	dataSize	= 0;
@@ -28,7 +28,7 @@ WAVHeader::WAVHeader() {
 };
 
 // Copy c-tor
-WAVHeader::WAVHeader(const WAVHeader &_w) {
+wavHeader::wavHeader(const wavHeader &_w) {
 
 	if (&_w != this) {
 
@@ -42,7 +42,7 @@ WAVHeader::WAVHeader(const WAVHeader &_w) {
 };
 
 // Move c-tor
-WAVHeader::WAVHeader(WAVHeader &&_w) {
+wavHeader::wavHeader(wavHeader &&_w) {
 
 	if (&_w != this) {
 
@@ -62,42 +62,42 @@ WAVHeader::WAVHeader(WAVHeader &&_w) {
 
 
 // Get sample rate
-unsigned int WAVHeader::getSampleRate() const {
+unsigned int wavHeader::getSampleRate() const {
 
 	return sampleRate;
 
 };
 
 // Get data size
-unsigned int WAVHeader::getDataSize() const {
+unsigned int wavHeader::getDataSize() const {
 
 	return dataSize;
 
 };
 
 // Get number of channels
-unsigned short WAVHeader::getNumOfChannels() const {
+unsigned short wavHeader::getNumOfChannels() const {
 
 	return numOfChannels;
 
 };
 
 // Get bits per sample
-unsigned short WAVHeader::getBitsPerSample() const {
+unsigned short wavHeader::getBitsPerSample() const {
 
 	return bitsPerSample;
 
 };
 
 // Get byte rate
-unsigned int WAVHeader::getByteRate() const {
+unsigned int wavHeader::getByteRate() const {
 
 	return sampleRate * getBlockAlign();
 
 };
 
 // Get block align
-unsigned short WAVHeader::getBlockAlign() const {
+unsigned short wavHeader::getBlockAlign() const {
 
 	return numOfChannels * bitsPerSample / 8;
 
@@ -105,28 +105,28 @@ unsigned short WAVHeader::getBlockAlign() const {
 
 
 // Set sample rate
-void WAVHeader::setSampleRate(const unsigned int &_sampleRate) {
+void wavHeader::setSampleRate(const unsigned int &_sampleRate) {
 
 	sampleRate = _sampleRate;
 
 };
 
 // Set data size
-void WAVHeader::setDataSize(const unsigned int &_dataSize) {
+void wavHeader::setDataSize(const unsigned int &_dataSize) {
 
 	dataSize = _dataSize;
 
 }
 
 // Set number of channels
-void WAVHeader::setNumOfChannels(const unsigned short &_numOfChannels) {
+void wavHeader::setNumOfChannels(const unsigned short &_numOfChannels) {
 
 	numOfChannels = _numOfChannels;
 
 };
 
 // Set bits per sample
-void WAVHeader::setBitsPerSample(const unsigned short &_bitsPerSample) {
+void wavHeader::setBitsPerSample(const unsigned short &_bitsPerSample) {
 
 	bitsPerSample = _bitsPerSample;
 
@@ -134,7 +134,7 @@ void WAVHeader::setBitsPerSample(const unsigned short &_bitsPerSample) {
 
 
 // Write header
-bool WAVHeader::write(const char *_buffer) const {
+bool wavHeader::write(const char *_buffer) const {
 
 	*(unsigned int*)&_buffer[0]	= WAV_RIFF_CHUNK_ID;
 	*(unsigned int*)&_buffer[4]	= 36 + dataSize;
@@ -156,7 +156,7 @@ bool WAVHeader::write(const char *_buffer) const {
 
 
 // D-tor
-WAVHeader::~WAVHeader() {
+wavHeader::~wavHeader() {
 
 	sampleRate	= 0;
 	dataSize	= 0;

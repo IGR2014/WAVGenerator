@@ -14,14 +14,14 @@
 /////////////////////////////////////////////////////////
 
 
-#include "WAVIGen.hpp"
+#include "wavIGen.hpp"
 
 
 // C-tor
-WAVIGenerator::WAVIGenerator() : frequency(500.0), sampleRate(96000), byteRate(2), volume(32767) {};
+wavIGen::wavIGen() : frequency(500.0), sampleRate(96000), byteRate(2), volume(32767) {};
 
 // Copy c-tor
-WAVIGenerator::WAVIGenerator(const WAVIGenerator &_g) {
+wavIGen::wavIGen(const WAVIGenerator &_g) {
 
 	if (&_g != this) {
 
@@ -35,7 +35,7 @@ WAVIGenerator::WAVIGenerator(const WAVIGenerator &_g) {
 };
 
 // Move c-tor
-WAVIGenerator::WAVIGenerator(WAVIGenerator &&_g) {
+wavIGen::wavIGen(wavIGen &&_g) {
 
 	if (&_g != this) {
 
@@ -55,56 +55,56 @@ WAVIGenerator::WAVIGenerator(WAVIGenerator &&_g) {
 
 
 // Get frequency
-double WAVIGenerator::getFrequency() const {
+double wavIGen::getFrequency() const {
 
 	return frequency;
 
 };
 
 // Get sample rate
-unsigned int WAVIGenerator::getSampleRate() const {
+unsigned int wavIGen::getSampleRate() const {
 
 	return sampleRate;
 
 };
 
 // Get byte rate
-unsigned short WAVIGenerator::getByteRate() const {
+unsigned short wavIGen::getByteRate() const {
 
 	return byteRate;
 
 };
 
 // Get volume
-unsigned short WAVIGenerator::getVolume() const {
+unsigned short wavIGen::getVolume() const {
 
 	return volume;
 
 };
 
 // Set frequency
-void WAVIGenerator::setFrequency(const double &_frequency) {
+void wavIGen::setFrequency(const double &_frequency) {
 
 	frequency = _frequency;
 
 };
 
 // Set sample rate
-void WAVIGenerator::setSampleRate(const unsigned int &_sampleRate) {
+void wavIGen::setSampleRate(const unsigned int &_sampleRate) {
 
 	sampleRate = _sampleRate;
 
 };
 
 // Set byte rate
-void WAVIGenerator::setByteRate(const unsigned short &_byteRate) {
+void wavIGen::setByteRate(const unsigned short &_byteRate) {
 
 	byteRate = _byteRate;
 
 };
 
 // Set volume
-void WAVIGenerator::setVolume(const unsigned short &_volume) {
+void wavIGen::setVolume(const unsigned short &_volume) {
 
 	volume = _volume;
 
@@ -112,7 +112,7 @@ void WAVIGenerator::setVolume(const unsigned short &_volume) {
 
 
 // D-tor
-WAVIGenerator::~WAVIGenerator() {
+wavIGen::~wavIGen() {
 
 	frequency	= 0.0;
 	sampleRate	= 0;

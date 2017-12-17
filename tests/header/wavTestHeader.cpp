@@ -15,14 +15,14 @@
 
 #include <iostream>
 
-#include "../../WAVHeader.hpp"
+#include "../../wavHeader.hpp"
 
 
 int main(int argc, char* argv[]) {
 
 	char data[44];
 
-	WAVHeader wHeader;
+	wavHeader wHeader;
 	wHeader.write(data);
 
 	std::cout << "Chunk ID:\t\t\"" << data[0] << data[1] << data[2] << data[3] << "\"" << std::endl;

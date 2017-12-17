@@ -28,7 +28,7 @@ static const unsigned int WAV_DATA_SUBCHUNK_ID	= 0x61746164;	// "data"
 
 
 // WAVE file header
-class WAVHeader {
+class wavHeader {
 
 	private:
 
@@ -41,11 +41,11 @@ class WAVHeader {
 	public:
 
 		// Default c-tor
-		WAVHeader();
+		wavHeader();
 		// Copy c-tor
-		WAVHeader(const WAVHeader&);
+		wavHeader(const wavHeader&);
 		// Move c-tor
-		WAVHeader(WAVHeader&&);
+		wavHeader(wavHeader&&);
 
 		// Get sample rate
 		unsigned int		getSampleRate() const;
@@ -73,6 +73,6 @@ class WAVHeader {
 		bool			write(const char*) const;
 
 		// D-tor
-		~WAVHeader();
+		~wavHeader();
 
 };

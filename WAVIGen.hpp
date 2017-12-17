@@ -18,7 +18,7 @@
 
 
 // WAV file data generator interface class
-class WAVIGenerator {
+class wavIGen {
 
 	private:
 
@@ -31,11 +31,11 @@ class WAVIGenerator {
 	public:
 
 		// C-tor
-		WAVIGenerator();
+		wavIGen();
 		// Copy c-tor
-		WAVIGenerator(const WAVIGenerator&);
+		wavIGen(const wavIGen&);
 		// Move c-tor
-		WAVIGenerator(WAVIGenerator&&);
+		wavIGen(wavIGen&&);
 
 		// Generator function
 		virtual void	generate(unsigned short*, const unsigned int&) = 0;
@@ -59,6 +59,6 @@ class WAVIGenerator {
 		void		setVolume(const unsigned short&);
 
 		// D-tor
-		virtual ~WAVIGenerator();
+		virtual ~wavIGen();
 
 };

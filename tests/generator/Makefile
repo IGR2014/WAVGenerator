@@ -1,7 +1,7 @@
 CXX		?= g++
-OBJ		= WAVGenTest.o ../../WAVHeader.o ../../WAVIGen.o ../../generators/WAVSinGen.o ../../generators/WAVSawGen.o ../../generators/WAVSquareGen.o
+OBJ		= wavTestGenerator.o ../../wavHeader.o ../../wavIGen.o ../../generators/wavGenSin.o ../../generators/wavGenSaw.o ../../generators/wavGenSqr.o
 LIBS		= -static-libgcc -m64 -s
-BIN		= WAVGeneratorTest
+BIN		= wavTestGenerator
 CXXFLAGS	= -Os -m64 -std=c++11 -w -Wall -Wextra -pedantic -Werror -pipe
 RM		= rm -f
 
@@ -15,23 +15,23 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CXX) $(OBJ) -o $(BIN) $(LIBS)
 
-WAVGenTest.o: WAVGenTest.cpp
-	$(CXX) -c WAVGenTest.cpp -o WAVGenTest.o $(CXXFLAGS)
+wavTestGenerator.o: wavTestGenerator.cpp
+	$(CXX) -c wavTestGenerator.cpp -o wavTestGenerator.o $(CXXFLAGS)
 
-../../WAVHeader.o: ../../WAVHeader.cpp
-	$(CXX) -c ../../WAVHeader.cpp -o ../../WAVHeader.o $(CXXFLAGS)
+../../wavHeader.o: ../../wavHeader.cpp
+	$(CXX) -c ../../wavHeader.cpp -o ../../wavHeader.o $(CXXFLAGS)
 
-../../WAVIGen.o: ../../WAVIGen.cpp
-	$(CXX) -c ../../WAVIGen.cpp -o ../../WAVIGen.o $(CXXFLAGS)
+../../wavIGen.o: ../../wavIGen.cpp
+	$(CXX) -c ../../wavIGen.cpp -o ../../wavIGen.o $(CXXFLAGS)
 
-../../generators/WAVSinGen.o: ../../generators/WAVSinGen.cpp
-	$(CXX) -c ../../generators/WAVSinGen.cpp -o ../../generators/WAVSinGen.o $(CXXFLAGS)
+../../generators/wavGenSin.o: ../../generators/wavGenSin.cpp
+	$(CXX) -c ../../generators/wavGenSin.cpp -o ../../generators/wavGenSin.o $(CXXFLAGS)
 
-../../generators/WAVSawGen.o: ../../generators/WAVSawGen.cpp
-	$(CXX) -c ../../generators/WAVSawGen.cpp -o ../../generators/WAVSawGen.o $(CXXFLAGS)
+../../generators/wavGenSaw.o: ../../generators/wavGenSaw.cpp
+	$(CXX) -c ../../generators/wavGenSaw.cpp -o ../../generators/wavGenSaw.o $(CXXFLAGS)
 
-../../generators/WAVSquareGen.o: ../../generators/WAVSquareGen.cpp
-	$(CXX) -c ../../generators/WAVSquareGen.cpp -o ../../generators/WAVSquareGen.o $(CXXFLAGS)
+../../generators/wavGenSqr.o: ../../generators/wavGenSqr.cpp
+	$(CXX) -c ../../generators/wavGenSqr.cpp -o ../../generators/wavGenSqr.o $(CXXFLAGS)
 
 run:
 	$(BIN)
