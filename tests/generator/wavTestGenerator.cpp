@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
 
 	std::ofstream	file;
 
-	WAVHeader header;
+	wavHeader header;
 	header.setDataSize(dataSize * 2);
 	header.write(reinterpret_cast<char*>(data));
 
