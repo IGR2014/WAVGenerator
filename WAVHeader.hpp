@@ -1,12 +1,12 @@
 /////////////////////////////////////////////////////////
 //
-//	Name:		WAVHeader.hpp
+//	Name:		wavHeader.hpp
 //
 //	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		09.04.2017 20:01
+//	Date:		18.12.2017 16:26
 //
 //	Description:	WAVE file header class
 //			declaration
@@ -44,8 +44,6 @@ class wavHeader {
 		wavHeader();
 		// Copy c-tor
 		wavHeader(const wavHeader&);
-		// Move c-tor
-		wavHeader(wavHeader&&);
 
 		// Get sample rate
 		unsigned int		getSampleRate() const;
@@ -76,3 +74,4 @@ class wavHeader {
 		~wavHeader();
 
 };
+

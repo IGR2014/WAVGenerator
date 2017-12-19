@@ -1,12 +1,12 @@
 /////////////////////////////////////////////////////////
 //
-//	Name:		WAVSinGenerator.hpp
+//	Name:		wavGenSin.hpp
 //
 //	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		09.04.2017 20:01
+//	Date:		18.12.2017 16:47
 //
 //	Description:	WAVE file sin generator
 //			class declaration
@@ -17,7 +17,7 @@
 #pragma once
 
 
-#include "../wavIGen.hpp"
+#include "wavIGen.hpp"
 
 
 // Wav file data sin generator
@@ -29,16 +29,15 @@ class wavGenSin : public wavIGen {
 	public:
 
 		// C-tor
-		wavGenSin() = default;
+		wavGenSin() : wavIGen() {};
 		// Copy c-tor
-		wavGenSin(const wavGenSin&) = default;
-		// Move c-tor
-		wavGenSin(wavGenSin&&) = default;
+		wavGenSin(const wavGenSin&);
 
 		// Generator function
-		virtual void generate(unsigned short*, const unsigned int&) override final;
+		virtual void generate(unsigned short*, const unsigned int&) override;
 
 		// D-tor
-		~wavGenSin() = default;
+		~wavGenSin() {};
 
 };
+

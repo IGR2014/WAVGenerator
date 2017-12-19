@@ -1,12 +1,12 @@
 /////////////////////////////////////////////////////////
 //
-//	Name:		WAVHeader.cpp
+//	Name:		wavHeader.cpp
 //
 //	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		09.04.2017 20:01
+//	Date:		18.12.2017 16:49
 //
 //	Description:	WAVE file header class
 //			definition
@@ -25,40 +25,21 @@ wavHeader::wavHeader() {
 	numOfChannels	= 1;
 	bitsPerSample	= 16;
 
-};
+}
 
 // Copy c-tor
 wavHeader::wavHeader(const wavHeader &_w) {
 
 	if (&_w != this) {
 
-		sampleRate		= _w.sampleRate;
-		dataSize		= _w.dataSize;
-		numOfChannels		= _w.numOfChannels;
-		bitsPerSample		= _w.bitsPerSample;
+		sampleRate	= _w.sampleRate;
+		dataSize	= _w.dataSize;
+		numOfChannels	= _w.numOfChannels;
+		bitsPerSample	= _w.bitsPerSample;
 
 	}
 
-};
-
-// Move c-tor
-wavHeader::wavHeader(wavHeader &&_w) {
-
-	if (&_w != this) {
-
-		sampleRate		= _w.sampleRate;
-		dataSize		= _w.dataSize;
-		numOfChannels		= _w.numOfChannels;
-		bitsPerSample		= _w.bitsPerSample;
-
-		_w.sampleRate		= 48000;
-		_w.dataSize		= 0;
-		_w.numOfChannels	= 1;
-		_w.bitsPerSample	= 16;
-
-	}
-
-};
+}
 
 
 // Get sample rate
@@ -66,42 +47,42 @@ unsigned int wavHeader::getSampleRate() const {
 
 	return sampleRate;
 
-};
+}
 
 // Get data size
 unsigned int wavHeader::getDataSize() const {
 
 	return dataSize;
 
-};
+}
 
 // Get number of channels
 unsigned short wavHeader::getNumOfChannels() const {
 
 	return numOfChannels;
 
-};
+}
 
 // Get bits per sample
 unsigned short wavHeader::getBitsPerSample() const {
 
 	return bitsPerSample;
 
-};
+}
 
 // Get byte rate
 unsigned int wavHeader::getByteRate() const {
 
 	return sampleRate * getBlockAlign();
 
-};
+}
 
 // Get block align
 unsigned short wavHeader::getBlockAlign() const {
 
 	return numOfChannels * bitsPerSample / 8;
 
-};
+}
 
 
 // Set sample rate
@@ -109,7 +90,7 @@ void wavHeader::setSampleRate(const unsigned int &_sampleRate) {
 
 	sampleRate = _sampleRate;
 
-};
+}
 
 // Set data size
 void wavHeader::setDataSize(const unsigned int &_dataSize) {
@@ -123,14 +104,14 @@ void wavHeader::setNumOfChannels(const unsigned short &_numOfChannels) {
 
 	numOfChannels = _numOfChannels;
 
-};
+}
 
 // Set bits per sample
 void wavHeader::setBitsPerSample(const unsigned short &_bitsPerSample) {
 
 	bitsPerSample = _bitsPerSample;
 
-};
+}
 
 
 // Write header
@@ -152,7 +133,7 @@ bool wavHeader::write(const char *_buffer) const {
 
 	return true;
 
-};
+}
 
 
 // D-tor
@@ -163,4 +144,5 @@ wavHeader::~wavHeader() {
 	numOfChannels	= 0;
 	bitsPerSample	= 0;
 
-};
+}
+

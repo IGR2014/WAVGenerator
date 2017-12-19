@@ -1,23 +1,23 @@
 /////////////////////////////////////////////////////////
 //
-//	Name:		WAVGeneratorTest.cpp
+//	Name:		wavSound.cpp
 //
 //	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		12.04.2017 17:11
+//	Date:		18.12.2017 17:11
 //
-//	Description:	WAVE file generators test
+//	Description:	WAVE file generators
 //
 /////////////////////////////////////////////////////////
 
 
-#include <iostream>
-#include <fstream>
+#include <windows.h>
 
 
 #include "../../wavHeader.hpp"
+#include "../../wavFile.hpp"
 #include "../../generators/wavGenSin.hpp"
 #include "../../generators/wavGenSaw.hpp"
 #include "../../generators/wavGenSqr.hpp"
@@ -27,10 +27,8 @@ int main(int argc, char* argv[]) {
 
 	float		frequency	= 440.0;
 	unsigned short	volume		= 16384;
-	unsigned int	dataSize	= 48000;
+	unsigned int	dataSize	= 44100;
 	unsigned short*	data		= new unsigned short[dataSize + 22];
-
-	std::ofstream	file;
 
 	wavHeader header;
 	header.setDataSize(dataSize * 2);
@@ -42,9 +40,13 @@ int main(int argc, char* argv[]) {
 	sinGen.setVolume(volume);
 	sinGen.generate((data + 22), dataSize);
 
-	file.open("sin.wav", std::ios::out | std::ios::binary);
-	file.write(reinterpret_cast<char*>(data), (dataSize + 22) * 2);
-	file.close();
+	wavFile wFileSin, wFileSaw, wFileSqr;
+
+	wFileSin.setHeader(header);
+	wFileSaw.setHeader(header);
+	wFileSqr.setHeader(header);
+
+	wFileSin.setData(reinterpret_cast<char*>(data), (dataSize + 22) * 2);
 
 	wavGenSaw sawGen;
 	sawGen.setFrequency(frequency);
@@ -52,9 +54,7 @@ int main(int argc, char* argv[]) {
 	sawGen.setVolume(volume);
 	sawGen.generate((data + 22), dataSize);
 
-	file.open("saw.wav", std::ios::out | std::ios::binary);
-	file.write(reinterpret_cast<char*>(data), (dataSize + 22) * 2);
-	file.close();
+	wFileSaw.setData(reinterpret_cast<char*>(data), (dataSize + 22) * 2);
 
 	wavGenSqr sqrGen;
 	sqrGen.setFrequency(frequency);
@@ -62,12 +62,28 @@ int main(int argc, char* argv[]) {
 	sqrGen.setVolume(volume);
 	sqrGen.generate((data + 22), dataSize);
 
-	file.open("square.wav", std::ios::out | std::ios::binary);
-	file.write(reinterpret_cast<char*>(data), (dataSize + 22) * 2);
-	file.close();
+	wFileSqr.setData(reinterpret_cast<char*>(data), (dataSize + 22) * 2);
 
 	delete [] data;
+
+	wFileSin.save(L"sin");
+	wFileSaw.save(L"saw");
+	wFileSqr.save(L"sqr");
+
+	wFileSin.play(true);
+	Sleep(3000);
+	wFileSin.stop();
+
+	wFileSaw.play(true);
+	Sleep(3000);
+	wFileSaw.stop();
+
+	wFileSqr.play(true);
+	Sleep(3000);
+	wFileSqr.stop();
 
 	return 0;
 
 }
+
+

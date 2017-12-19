@@ -1,12 +1,12 @@
 /////////////////////////////////////////////////////////
 //
-//	Name:		WAVIGenerator.hpp
+//	Name:		wavIGen.hpp
 //
 //	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		11.04.2017 23:28
+//	Date:		18.12.2017 16:48
 //
 //	Description:	WAVE file generator interface
 //			class declaration
@@ -34,8 +34,6 @@ class wavIGen {
 		wavIGen();
 		// Copy c-tor
 		wavIGen(const wavIGen&);
-		// Move c-tor
-		wavIGen(wavIGen&&);
 
 		// Generator function
 		virtual void	generate(unsigned short*, const unsigned int&) = 0;
@@ -62,3 +60,4 @@ class wavIGen {
 		virtual ~wavIGen();
 
 };
+

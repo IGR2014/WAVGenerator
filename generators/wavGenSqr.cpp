@@ -1,12 +1,12 @@
 /////////////////////////////////////////////////////////
 //
-//	Name:		WAVSquareGenerator.cpp
+//	Name:		wavGenSqr.cpp
 //
 //	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		13.04.2017 22:42
+//	Date:		18.12.2017 16:49
 //
 //	Description:	WAVE file square generator
 //			class definition
@@ -18,7 +18,13 @@
 #define _USE_MATH_DEFINES
 
 
+#ifndef	M_PI
+#define M_PI	3.14159265358979323846
+#endif	// M_PI
+
+
 #include <cmath>
+
 
 #include "wavGenSqr.hpp"
 
@@ -34,4 +40,5 @@ void wavGenSqr::generate(unsigned short* data, const unsigned int &dataSize) {
 
 	}
 
-};
+}
+

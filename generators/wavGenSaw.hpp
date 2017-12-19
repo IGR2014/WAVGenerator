@@ -1,12 +1,12 @@
 /////////////////////////////////////////////////////////
 //
-//	Name:		WAVSawGenerator.hpp
+//	Name:		wavGenSaw.hpp
 //
 //	Copyright:	Igor Baklykov (c) 2017
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		09.04.2017 20:01
+//	Date:		18.12.2017 16:47
 //
 //	Description:	WAVE file saw generator
 //			class declaration
@@ -17,7 +17,7 @@
 #pragma once
 
 
-#include "../wavIGen.hpp"
+#include "wavIGen.hpp"
 
 
 // Wav file data saw generator
@@ -29,16 +29,15 @@ class wavGenSaw : public wavIGen {
 	public:
 
 		// C-tor
-		wavGenSaw() = default;
+		wavGenSaw() : wavIGen() {};
 		// Copy c-tor
-		wavGenSaw(const wavGenSaw&) = default;
-		// Move c-tor
-		wavGenSaw(wavGenSaw&&) = default;
+		wavGenSaw(const wavGenSaw&);
 
 		// Generator function
-		virtual void generate(unsigned short*, const unsigned int&) override final;
+		virtual void generate(unsigned short*, const unsigned int&) override;
 
 		// D-tor
-		~wavGenSaw() = default;
+		~wavGenSaw() {};
 
 };
+

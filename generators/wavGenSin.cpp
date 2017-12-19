@@ -6,7 +6,7 @@
 //
 //	Author:		Igor Baklykov
 //
-//	Date:		13.04.2017 22:42
+//	Date:		18.12.2017 16:45
 //
 //	Description:	WAVE file sin generator
 //			class definition
@@ -18,7 +18,13 @@
 #define _USE_MATH_DEFINES
 
 
+#ifndef	M_PI
+#define M_PI	3.14159265358979323846
+#endif	// M_PI
+
+
 #include <cmath>
+
 
 #include "wavGenSin.hpp"
 
@@ -30,8 +36,9 @@ void wavGenSin::generate(unsigned short* data, const unsigned int &dataSize) {
 
 	for (unsigned int i = 0; i < dataSize; ++i) {
 
-		data[i] = getVolume() * sin(freqQuant * i);
+		data[i] = static_cast<short>(getVolume() * sin(freqQuant * i));
 
 	}
 
-};
+}
+
